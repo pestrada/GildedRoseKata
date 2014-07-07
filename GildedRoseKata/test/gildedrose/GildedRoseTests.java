@@ -111,18 +111,21 @@ public class GildedRoseTests {
 	
 	@Test
 	public void sulfuras_update_does_not_change_the_sell_in () {
+		initialQuality = 80;
 		getGildedRose().updateQuality(buildList(buildItem("Sulfuras, Hand of Ragnaros")));
 		assertEquals(initialSellIn,  this.item.getSellIn());
 	}
 	
 	@Test
 	public void sulfuras_before_sell_date_update_does_not_change_quality () {
+		initialQuality = 80;
 		getGildedRose().updateQuality(buildList(buildItem("Sulfuras, Hand of Ragnaros")));
 		assertEquals(initialQuality,  this.item.getQuality());
 	}
 	
 	@Test
 	public void sulfuras_on_sell_date_update_does_not_change_quality () {
+		initialQuality = 80;
 		initialSellIn = 0;
 		getGildedRose().updateQuality(buildList(buildItem("Sulfuras, Hand of Ragnaros")));
 		assertEquals(initialQuality,  this.item.getQuality());
@@ -130,6 +133,7 @@ public class GildedRoseTests {
 
 	@Test
 	public void sulfuras_after_sell_date_update_does_not_change_quality () {
+		initialQuality = 80;
 		initialSellIn = -10;
 		getGildedRose().updateQuality(buildList(buildItem("Sulfuras, Hand of Ragnaros")));
 		assertEquals(initialQuality,  this.item.getQuality());
